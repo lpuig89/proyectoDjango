@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Book List</h1>
+  {% if loan_list %}
+  <ul>
+    {% for loan in loan_list %}
+      <li>
+        <strong>Titulo: </strong>{{ loan.book }} <strong>Fecha Devolucion: </strong>{{ loan.return_date }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No hay libros disponibles.</p>
+  {% endif %}       
+{% endblock %}
