@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>{{ author }}</p>
+<div style="margin-left:20px;margin-top:20px">
+    <hr>
+</div>
+<a  href="{% url "author_update"  author.id  %}">Modificar</a>
+<a  href="{% url "author_delete"  author.id  %}">Borrar</a>
+{% endblock %}

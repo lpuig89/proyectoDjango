@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Lista de Usuarios</h1>
+  <ul>
+    {% for libraryuser in libraryuser_list %}
+      <li>
+        <strong>Nombre: </strong><a href="{{ libraryuser.get_absolute_url }}">{{ libraryuser }}</a>
+      </li>
+    {% endfor %}
+  </ul>     
+{% endblock %}

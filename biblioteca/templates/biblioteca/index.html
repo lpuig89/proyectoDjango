@@ -1,11 +1,11 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-  <h1>Local Library Home</h1>
-  <p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The library has the following record counts:</p>
+  <h1>Biblioteca</h1>
   <ul>
-    <li>hola</li>
+    <li><a href="{% url 'loan_create' %}">Agregar nueva reserva</a></li>
+    <li><a href="{% url 'book_create' %}">Agregar nuevo libro</a></li>
+    <li><a href="{% url 'author_create' %}">Agregar nuevo autor</a></li>
+    <li><a href="{% url 'libraryuser_create' %}">Agregar nuevo usuario</a></li>
   </ul>
 {% endblock %}

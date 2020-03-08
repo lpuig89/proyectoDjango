@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Borrar usuario</h1>
+
+<p>Estas seguro que quieres borrar el usuario {{ libraryuser }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Si.">
+</form>
+
+{% endblock %}

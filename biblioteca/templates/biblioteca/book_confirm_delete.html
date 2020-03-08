@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Borrar libro</h1>
+
+<p>Estas seguro que quieres borrar el libro {{ book }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Si.">
+</form>
+
+{% endblock %}

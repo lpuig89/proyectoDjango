@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Title: {{ book.title }}</h1>
+
+<p><strong>Author:</strong> <a href="">{{ book.author.all|join:", " }}</a></p> <!-- author detail link not yet defined -->
+<div style="margin-left:20px;margin-top:20px">
+    <hr>
+    {% if book.loan_set.all %}
+        {% for copy in book.loan_set.all %}
+            {% if copy.status == True %}
+                <p><strong>El libro tendra que ser devuelto el dia </strong> {{ copy.return_date }}</p>
+            {% else %}
+                <p><strong>El libro esta disponible</strong> </p>
+            {% endif %}
+        {% endfor %}
+    {% else %}    
+        <p><strong>El libro esta disponible</strong> </p>
+    {% endif %}
+        
+</div>
+<a  href="{% url "book_update"  book.id  %}">Modificar</a>
+<a  href="{% url "book_delete"  book.id  %}">Borrar</a>
+{% endblock %}

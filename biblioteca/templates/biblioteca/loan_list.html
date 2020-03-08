@@ -1,4 +1,4 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block content %}
   <h1>Book List</h1>
@@ -6,7 +6,7 @@
   <ul>
     {% for loan in loan_list %}
       <li>
-        <strong>Titulo: </strong>{{ loan.book }} <strong>Fecha Devolucion: </strong>{{ loan.return_date }}
+        <strong>Titulo: </strong><a href="{{ loan.get_absolute_url }}">{{ loan.book }}</a> <strong>Fecha Devolucion: </strong>{{ loan.return_date }}
       </li>
     {% endfor %}
   </ul>
