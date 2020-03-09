@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Title: {{ book.title }}</h1>
 
-<p><strong>Author:</strong> <a href="">{{ book.author.all|join:", " }}</a></p> <!-- author detail link not yet defined -->
+<p><strong>Author:</strong> {{ book.author.all|join:", " }} </p>
 <div style="margin-left:20px;margin-top:20px">
     <hr>
     {% if book.loan_set.all %}

@@ -12,5 +12,6 @@
   </ul>
   {% else %}
     <p>No hay libros disponibles.</p>
-  {% endif %}      
+  {% endif %}       
+  <li><a href="{% url 'book_create' %}">Agregar nuevo libro</a></li>
 {% endblock %}

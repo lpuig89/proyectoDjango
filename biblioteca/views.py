@@ -7,7 +7,8 @@ from django.utils import timezone
 from datetime import date
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import LoanForm
+from django.forms import modelformset_factory
+from biblioteca.forms import LoanCreateForm
 
 def index(request):
     context = {
@@ -18,6 +19,7 @@ def index(request):
 class BookListView(generic.ListView):
 
         model = Book
+        template_name='biblioteca/all_book_list.html'
 
 class AuthorListView(generic.ListView):
 
@@ -64,7 +66,7 @@ class BookUpdate(UpdateView):
 
 class BookDelete(DeleteView):
     model = Book
-    success_url = reverse_lazy('books')
+    success_url = reverse_lazy('book')
 
 class AuthorCreate(CreateView):
     model = Author
@@ -76,7 +78,7 @@ class AuthorUpdate(UpdateView):
 
 class AuthorDelete(DeleteView):
     model = Author
-    success_url = reverse_lazy('authors')
+    success_url = reverse_lazy('author')
 
 class LibraryUserCreate(CreateView):
     model = LibraryUser
@@ -90,8 +92,6 @@ class LibraryUserDelete(DeleteView):
     model = LibraryUser
     success_url = reverse_lazy('libraryuser')
 
-def LoanCreate(request):
-    context = {
-        'form': LoanForm(),
-    }
-    return render(request, 'biblioteca/loan_form.html', context)
+class LoanCreate(CreateView):
+    model = Loan
+    form_class = LoanCreateForm

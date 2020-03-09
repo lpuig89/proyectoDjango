@@ -22,5 +22,5 @@ urlpatterns = [
     path('libraryuser/create/', views.LibraryUserCreate.as_view(), name='libraryuser_create'),
     path('libraryuser/<int:pk>/update/', views.LibraryUserUpdate.as_view(), name='libraryuser_update'),
     path('libraryuser/<int:pk>/delete/', views.LibraryUserDelete.as_view(), name='libraryuser_delete'),
-    path('loan/create/', views.LoanCreate),
+    path('loan/create/', views.LoanCreate.as_view(), name='loan_create'),
 ]
