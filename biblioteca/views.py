@@ -19,7 +19,6 @@ def index(request):
 class BookListView(generic.ListView):
 
         model = Book
-        template_name='biblioteca/all_book_list.html'
 
 class AuthorListView(generic.ListView):
 

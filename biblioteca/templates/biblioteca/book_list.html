@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Libros</h1>
+  
+{% if request.get_full_path == "/biblioteca/available-books/" %}
+<h1>Libros Disponibles</h1>
+{% elif request.get_full_path == "/biblioteca/loaned-books/" %}
+<h1>Libros Prestados</h1>
+{% else %}
+<h1>Libros</h1>
+{% endif %}
   {% if book_list %}
   <ul>
     {% for book in book_list %}
@@ -12,5 +19,8 @@
   </ul>
   {% else %}
     <p>No hay libros disponibles.</p>
-  {% endif %}      
+  {% endif %}   
+{% if request.get_full_path == "/biblioteca/book/" %}
+<li><a href="{% url 'book_create' %}">Agregar nuevo libro</a></li>
+{% endif %}   
 {% endblock %}

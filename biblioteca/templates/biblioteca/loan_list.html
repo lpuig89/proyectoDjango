@@ -6,7 +6,7 @@
   <ul>
     {% for loan in loan_list %}
       <li>
-        <strong>Titulo: </strong><a href="{{ loan.get_absolute_url }}">{{ loan.book }}</a> <strong>Fecha Devolucion: </strong>{{ loan.return_date }}
+        <strong>Titulo: </strong><a href="{{ loan.get_absolute_url }}">{{ loan.book }}</a> <strong>Fecha Devolucion: </strong>{{ loan.return_date }} <strong>Usuario: </strong>{{ loan.library_user }}
       </li>
     {% endfor %}
   </ul>
